@@ -1,0 +1,308 @@
+/* ============================= */
+/* RESET & GLOBAL STYLES */
+/* ============================= */
+
+/* Remove default browser spacing and make sizing predictable */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.header {
+    display: flex;                  /* Places logo and search next to each other */
+    justify-content: space-between; /* Pushes them to opposite sides */
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo img {
+    width: 160px;                   /* Scales better on small screens */
+    max-width: 100%;
+}
+
+/* ============================= */
+/* SEARCH BAR */
+/* ============================= */
+
+.search {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+.search .input {
+    width: 100%;
+    height: 50px;
+    border: none;
+    padding: 15px 50px 15px 15px;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.search.active {
+    width: 200px;
+}
+
+.search.active .input {
+    opacity: 1;
+}
+
+.btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.btn:focus,
+.input:focus {
+    outline: none;
+}
+
+/* ============================= */
+/* HERO SECTION */
+/* ============================= */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;        /* Prevents image stretching */
+    display: block;
+}
+
+.hero-text {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.hero-inner {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.hero-text h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive font size */
+}
+
+.hero-text h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* ============================= */
+/* CARDS SECTION (HOME PAGE) */
+/* ============================= */
+
+.cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;  /* Allows wrapping on smaller screens */
+}
+
+.card {
+    flex: 1 1 300px;
+    max-width: 360px;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* Keeps image ratio */
+    object-fit: cover;
+}
+
+.card h3 {
+    margin-top: 10px;
+}
+
+.card-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: #5d7a33;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+/* ============================= */
+/* SUBPAGES LAYOUT */
+/* ============================= */
+
+.sub-top,
+.sub-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    flex-wrap: wrap; /* Makes layout responsive */
+}
+
+.sub-box {
+    flex: 1 1 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Image containers on subpages */
+.sub-image {
+    text-align: center; /* Centers button under image */
+}
+
+.sub-image img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+}
+
+/* ============================= */
+/* SUBPAGE ICONS */
+/* ============================= */
+
+.sub-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.sub-icons img {
+    width: 360px;       /* Large decorative icons */
+    height: auto;
+}
+
+/* ============================= */
+/* SUBPAGE TITLE */
+/* ============================= */
+
+.sub-title {
+    text-align: center;
+    font-size: clamp(2.5rem, 10vw, 6rem); /* Scales nicely on all screens */
+    margin: 20px 0;
+}
+
+/* ============================= */
+/* SONG CARD */
+/* ============================= */
+
+.song-card {
+    background: white;
+    padding: 16px;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ============================= */
+/* GALLERY */
+/* ============================= */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s ease; /* Smooth hover animation */
+}
+
+.gallery img.active {
+    transform: translateY(-10px) scale(1.05);
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+.footer {
+    background: #5d7a33;
+    padding: 20px;
+    text-align: center;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.icons img {
+    width: 24px;
+}
+
+.credits {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+/* ============================= */
+/* MOBILE STYLES */
+/* ============================= */
+
+@media (max-width: 430px) {
+
+    /* Stack header items on mobile */
+    .header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Stack subpage sections vertically */
+    .sub-top,
+    .sub-bottom {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Reduce large title size on small screens */
+    .sub-title {
+        font-size: 2.5rem;
+    }
+
+    /* Make sure images don't overflow */
+    .sub-image img {
+        max-width: 100%;
+    }
+
+    /* Song card should fill mobile width */
+    .song-card {
+        max-width: 100%;
+    }
+}
